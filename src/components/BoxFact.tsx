@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 const BoxFact = () => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState<any>({});
 
   useEffect(() => {
     generarDatos();
