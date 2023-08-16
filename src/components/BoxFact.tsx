@@ -29,7 +29,7 @@ const BoxFact = () => {
 
   return (
     <div>
-      <div className="border border-red-600 rounded my-10">
+      <div className="border border-red-600 rounded my-10 animate-fade">
         <p className="p-2">
           <strong>Sabías que... </strong>
           {data}
@@ -40,7 +40,19 @@ const BoxFact = () => {
           onClick={generarDatos}
           className="block w-full rounded bg-red-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-red-700 focus:outline-none focus:ring active:bg-red-500 sm:w-auto"
         >
-          Generar
+          Ya lo sabía... &#128564;
+        </button>
+        <button
+          onClick={generarDatos}
+          className="block w-full rounded bg-red-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-red-700 focus:outline-none focus:ring active:bg-red-500 sm:w-auto"
+        >
+          Eso es nuevo &#128550;
+        </button>
+        <button
+          onClick={generarDatos}
+          className="block w-full rounded bg-red-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-red-700 focus:outline-none focus:ring active:bg-red-500 sm:w-auto"
+        >
+          QUE?! &#128552;
         </button>
       </div>
     </div>
