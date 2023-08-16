@@ -15,7 +15,6 @@ const BoxFact = () => {
   const generarDatos = async () => {
     let response = await fetch(`https://uselessfacts.jsph.pl/api/v2/facts/random`);
     let data = await response.json();
-    // traducirAEsp(data);
 
     let responseTraduccion = await fetch(
       `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=es&dt=t&q=${encodeURI(
@@ -24,9 +23,7 @@ const BoxFact = () => {
     );
 
     let dataTraducida = await responseTraduccion.json();
-
     let traduccion = dataTraducida[0][0][0];
-
     setData(traduccion);
   };
 
