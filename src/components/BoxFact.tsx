@@ -1,8 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
 
+type DatosApi = {
+  text: string;
+};
+
 const BoxFact = () => {
-  const [data, setData] = useState<any>({});
+  const [data, setData] = useState<any>("");
 
   useEffect(() => {
     generarDatos();
@@ -11,16 +15,27 @@ const BoxFact = () => {
   const generarDatos = async () => {
     let response = await fetch(`https://uselessfacts.jsph.pl/api/v2/facts/random`);
     let data = await response.json();
-    console.log(data);
-    setData(data);
+    // traducirAEsp(data);
+
+    let responseTraduccion = await fetch(
+      `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=es&dt=t&q=${encodeURI(
+        data.text
+      )}`
+    );
+
+    let dataTraducida = await responseTraduccion.json();
+
+    let traduccion = dataTraducida[0][0][0];
+
+    setData(traduccion);
   };
 
   return (
     <div>
-      <div className="border rounded my-">
+      <div className="border border-red-600 rounded my-10">
         <p className="p-2">
-          <strong>Sabias que: </strong>
-          {data.text}
+          <strong>Sabías que... </strong>
+          {data}
         </p>
       </div>
       <div className="mt-8 flex flex-wrap justify-center gap-4">
